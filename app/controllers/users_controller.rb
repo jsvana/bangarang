@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :ensure_logged_in, only: [:approved, :set_approved]
 
   # GET /users
   # GET /users.json
@@ -19,6 +20,19 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
+    end
+  end
+
+  # GET /approved
+  def approved
+    @users = User.where(approved: false)
+    @users.each do |user|
+      user.approved = true
+    end
+
+    respond_to do |format|
+      format.html # approved.html.erb
+      format.json { render json: @users }
     end
   end
 
@@ -71,6 +85,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def set_approved
+    @user = User.find(params[:id])
+    @user.approved = true
+    @user.save
+
+    File.open('/home/jsvana/test/passwd', 'a') {|f| f.write("#{@user.username}:$6$#{Digest::SHA512.hexdigest(@user.password)}:#{Time.now.to_i.days}:0:99999:7:::\n") }
+  end
+
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
@@ -80,6 +102,14 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :ok }
+    end
+  end
+
+  private
+
+  def ensure_logged_in
+    unless current_admin
+      redirect_to '/login'
     end
   end
 end

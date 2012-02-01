@@ -3,6 +3,6 @@ class UserMailer < ActionMailer::Base
 
   def admin_email(user)
   	@user = user
-  	mail(to: 'jsvana@mtu.edu', subject: "#{user.username} wants to be added to the server")
+  	mail(to: 'jaysvana@gmail.com', subject: "#{user.username} wants to be added to the server")
   end
 end

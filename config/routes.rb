@@ -1,7 +1,12 @@
 Bangarang::Application.routes.draw do
-  resources :welcomes
+  get 'login' => 'sessions#new', as: 'login'
+  get 'logout' => 'sessions#destroy', as: 'logout'
 
-  resources :users
+  resources :welcomes
+  resources :sessions
+  resources :users do
+    put :set_approved, on: :member
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -61,4 +66,6 @@ Bangarang::Application.routes.draw do
   # match ':controller(/:action(/:id(.:format)))'
 
   root to: "welcomes#index"
+
+  match "/approved" => "users#approved"
 end

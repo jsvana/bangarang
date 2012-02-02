@@ -8,11 +8,26 @@
 </head>
 <body>
 
-  <header>
-  	<%= image_tag "logo.png", width: 1000 %>
+  <header id="header">
+  	<%= image_tag "logo.png", width: 700 %>
   </header>
 
-<%= yield %>
+  <div class="center">
+	  <nav id="mainNav">
+	  	<ul>
+	  		<% if current_admin %>
+	  			<li><%= link_to 'Approve Users', '/approved' %></li>
+	  			<li><%= link_to 'Logout', '/logout' %></li>
+	  		<% else %>
+	  			<li><%= link_to 'Admin Login', '/login' %></li>
+	  		<% end %>
+	  	</ul>
+	  </nav>
+
+	  <div class="content">
+			<%= yield %>
+		</div>
+	</div>
 
 </body>
 </html>

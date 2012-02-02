@@ -3,7 +3,9 @@ body {
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
-  line-height: 18px; }
+  line-height: 18px;
+  margin: 0;
+  padding: 0; }
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -54,3 +56,30 @@ div {
   ul li {
     font-size: 12px;
     list-style: square; } }
+
+#header {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid gray;
+}
+
+div.center {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#mainNav {
+  float: left;
+  width: 20%;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+div.content {
+  margin-left: 20%;
+}

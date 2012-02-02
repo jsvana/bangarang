@@ -26,9 +26,6 @@ class UsersController < ApplicationController
   # GET /approved
   def approved
     @users = User.where(approved: false)
-    @users.each do |user|
-      user.approved = true
-    end
 
     respond_to do |format|
       format.html # approved.html.erb
@@ -90,7 +87,12 @@ class UsersController < ApplicationController
     @user.approved = true
     @user.save
 
-    File.open('/home/jsvana/test/passwd', 'a') {|f| f.write("#{@user.username}:$6$#{Digest::SHA512.hexdigest(@user.password)}:#{Time.now.to_i.days}:0:99999:7:::\n") }
+    # Call program
+    if system('/users/jsvana/bang add', @user.username, @user.password)
+      puts 'Added'
+    else
+      puts 'failure'
+    end
   end
 
   # DELETE /users/1

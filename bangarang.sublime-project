@@ -2,37 +2,7 @@
 	"folders":
 	[
 		{
-			"path": "/Users/jsvana/artemis/bangarang/app"
-		},
-		{
-			"path": "/Users/jsvana/artemis/bangarang/config"
-		},
-		{
-			"path": "/Users/jsvana/artemis/bangarang/db"
-		},
-		{
-			"path": "/Users/jsvana/artemis/bangarang/doc"
-		},
-		{
-			"path": "/Users/jsvana/artemis/bangarang/lib"
-		},
-		{
-			"path": "/Users/jsvana/artemis/bangarang/log"
-		},
-		{
-			"path": "/Users/jsvana/artemis/bangarang/public"
-		},
-		{
-			"path": "/Users/jsvana/artemis/bangarang/script"
-		},
-		{
-			"path": "/Users/jsvana/artemis/bangarang/test"
-		},
-		{
-			"path": "/Users/jsvana/artemis/bangarang/tmp"
-		},
-		{
-			"path": "/Users/jsvana/artemis/bangarang/vendor"
+			"path": "/Users/jsvana/artemis/bangarang"
 		}
 	]
 }

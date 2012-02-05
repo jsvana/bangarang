@@ -44,42 +44,29 @@
 	"buffers":
 	[
 		{
-			"file": "Gemfile",
+			"file": "app/views/layouts/application.html.haml",
 			"settings":
 			{
-				"buffer_size": 709,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Gemfile.lock",
+			"file": "/Users/jsvana/notes/NetworkingII/Notes 3 Feb 2012",
 			"settings":
 			{
-				"buffer_size": 2642,
+				"buffer_size": 2255,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "README",
+			"contents": "",
+			"file": "app/views/sessions/new.html.haml",
+			"file_size": -1,
+			"file_write_time": -1,
 			"settings":
 			{
-				"buffer_size": 9208,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Rakefile",
-			"settings":
-			{
-				"buffer_size": 274,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "config.ru",
-			"settings":
-			{
-				"buffer_size": 159,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		}
@@ -87,7 +74,7 @@
 	"build_system": "Packages/User/CoffeeScript.sublime-build",
 	"command_palette":
 	{
-		"height": 187.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
@@ -143,7 +130,7 @@
 				"Set Syntax: JavaScript"
 			]
 		],
-		"width": 449.0
+		"width": 530.0
 	},
 	"console":
 	{
@@ -160,6 +147,20 @@
 	},
 	"file_history":
 	[
+		"/Users/jsvana/artemis/bangarang/Gemfile",
+		"/Users/jsvana/artemis/bangarang/app/controllers/users_controller.rb",
+		"/Users/jsvana/artemis/bangarang/app/controllers/application_controller.rb",
+		"/Users/jsvana/artemis/bangarang/app/controllers/sessions_controller.rb",
+		"/Users/jsvana/artemis/bangarang/app/assets/stylesheets/scaffolds.css.scss",
+		"/Users/jsvana/artemis/bangarang/app/views/layouts/application.html.erb",
+		"/Users/jsvana/artemis/bangarang/app/views/welcomes/index.html.erb",
+		"/Users/jsvana/notes/NetworkingII/Notes 30 Jan 2012",
+		"/Users/jsvana/notes/NetworkingII/Notes 1 Feb 2012",
+		"/Users/jsvana/artemis/add.rb",
+		"/Users/jsvana/artemis/bangarang/config.ru",
+		"/Users/jsvana/artemis/bangarang/Rakefile",
+		"/Users/jsvana/artemis/bangarang/README",
+		"/Users/jsvana/artemis/bangarang/Gemfile.lock",
 		"/Users/jsvana/artemis/home/jsvana/bangarang/Gemfile",
 		"/Users/jsvana/artemis/home/jsvana/bangarang/Gemfile.lock",
 		"/Users/jsvana/artemis/home/jsvana/bangarang/README",
@@ -273,12 +274,7 @@
 		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/Makefile",
 		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/structs.h",
 		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/charsets/generichero.png",
-		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/maps/map2.c",
-		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/maps/map1.c",
-		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/maps/Makefile",
-		"/Users/jsvana/Desktop/index.php",
-		"/Users/jsvana/Desktop/test.c",
-		"/Users/jsvana/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap"
+		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/maps/map2.c"
 	],
 	"find":
 	{
@@ -375,15 +371,15 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Gemfile",
+					"file": "app/views/layouts/application.html.haml",
 					"settings":
 					{
-						"buffer_size": 709,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -396,7 +392,9 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Rails/Ruby Haml.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -406,25 +404,23 @@
 				},
 				{
 					"buffer": 1,
-					"file": "Gemfile.lock",
+					"file": "/Users/jsvana/notes/NetworkingII/Notes 3 Feb 2012",
 					"settings":
 					{
-						"buffer_size": 2642,
+						"buffer_size": 2255,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1747,
+								1747
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -434,10 +430,10 @@
 				},
 				{
 					"buffer": 2,
-					"file": "README",
+					"file": "app/views/sessions/new.html.haml",
 					"settings":
 					{
-						"buffer_size": 9208,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -450,61 +446,7 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Rakefile",
-					"settings":
-					{
-						"buffer_size": 274,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "config.ru",
-					"settings":
-					{
-						"buffer_size": 159,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Rails/Ruby Haml.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

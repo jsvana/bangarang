@@ -1,7 +1,0 @@
-%h1 Unapproved Users
-
-- @users.each do |user|
-	= div_for user do
-		%p
-			= user.username
-		= link_to "Approve", set_approved_user_path(user), method: :put, remote: true

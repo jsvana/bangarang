@@ -1,25 +1,64 @@
 !!! 5
 %html
-%head
-	%title= yield :title || "Bangarang"
-	= stylesheet_link_tag "application"
-	= javascript_include_tag "application"
-	= csrf_meta_tags
-%body
-	%header#header
-		= image_tag "logo.png", width: 700
+	%head
+		%title= yield :title || "Bangarang"
+		= stylesheet_link_tag "application"
+		= stylesheet_link_tag "bootstrap"
+		= javascript_include_tag "application"
+		= csrf_meta_tags
+	%body
+		-#.navbar.navbar-fixed-top
+		-#	.navbar-inner
+		-#		.container-fluid
+		-#			%a.btn.btn-navbar{data: {toggle: "collapse", target: ".nav-collapse"}}
+		-#				%span.icon-bar
+		-#				%span.icon-bar
+		-#				%span.icon-bar
+		-#			%a.brand{href: "#"} Project name
+		-#			.nav-collapse
+		-#				%ul.nav
+		-#					%li.active
+		-#						%a{href: "#"} Home
+		-#					%li
+		-#						%a{href: "#about"} About
+		-#					%li
+		-#						%a{href: "#contact"} Contact
+		-#				%p.navbar-text.pull-right
+		-#					Logged in as
+		-#					%a{href: "#"} username
 
-	.center
-		%nav#mainNav
-			%ul
-				- if current_admin
-					%li
-						= link_to 'Approve Users', '/approved'
-					%li
-						= link_to 'Logout', '/logout'
-				- else
-					%li
-						= link_to 'Admin Login', '/login'
+		.container-fluid
+			.row-fluid
+				.span12
+					%header#header
+						= image_tag "logo.png", width: 700
+			
+			%hr
 
-		.content
-			= yield
+			.row-fluid
+				.span2
+					.well.sidebar-nav
+						%ul.nav.nav-list
+							- if current_user
+								%span Welcome, 
+								%span= current_user.username
+								%li.nav-header MEDIA
+								%li= link_to 'Music', '/music'
+								%li= link_to 'Movies', '/movies'
+								%li= link_to 'Games', '/games'
+								- if current_user.admin
+									%li.nav-header ADMIN
+									%li= link_to 'Manage Users', manage_path
+									%li= link_to 'Server Status', '/status'
+								%li.nav-header META
+								%li= link_to 'Account Settings', edit_user_path(current_user)
+								%li= link_to 'Logout', logout_path
+							- else
+								%li= link_to 'Login', login_path
+				.span10
+					.content
+						= yield
+			%hr
+
+			%footer
+				%p &copy; Bangarang Networks 2012

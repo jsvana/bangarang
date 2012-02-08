@@ -1,8 +1,13 @@
-%h1 Welcome to the Bangarang Networks homepage.
+%h1 Welcome.
 
-%p
-	If you would like to access the server, please 
-	= link_to "request a user.", new_user_path
+- if current_user
+	%p
+		Have fun!  If you have any questions,
+		=link_to 'ask them.', '/ask'
+- else
+	%p
+		If you would like to access the server, please 
+		= link_to "request a user.", new_user_path
 
 - content_for(:title) do
 	Welcome to Bangarang

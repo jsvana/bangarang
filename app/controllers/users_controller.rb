@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :ensure_logged_in, only: [:approved, :set_approved]
+  before_filter :ensure_logged_in, only: [:manage, :set_approved]
 
   # GET /users
   # GET /users.json
@@ -23,9 +23,9 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /approved
-  def approved
-    @users = User.where(approved: false)
+  # GET /manage
+  def manage
+    @users = User.all
 
     respond_to do |format|
       format.html # approved.html.erb
@@ -85,14 +85,24 @@ class UsersController < ApplicationController
   def set_approved
     @user = User.find(params[:id])
     @user.approved = true
-    @user.save
-
-    # Call program
-    if system('/users/jsvana/bang add', @user.username, @user.password)
-      puts 'Added'
+    puts 'saving...'
+    if @user.save
+      puts 'success'
     else
       puts 'failure'
     end
+    puts 'saved?'
+
+    respond_to do |format|
+      format.js
+    end
+
+    # Call program
+    #if system('/users/jsvana/bang add', @user.username, @user.password)
+    #  puts 'Added'
+    #else
+    #  puts 'failure'
+    #end
   end
 
   # DELETE /users/1
@@ -110,7 +120,7 @@ class UsersController < ApplicationController
   private
 
   def ensure_logged_in
-    unless current_admin
+    unless current_user && current_user.admin
       redirect_to '/login'
     end
   end

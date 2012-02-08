@@ -11,24 +11,19 @@
           = msg
 
   .field
-    = f.label :first_name
-    %br
-    = f.text_field :first_name
-  .field
-    = f.label :last_name
-    %br
-    = f.text_field :last_name
+    = f.label :name
+    = f.text_field :name
   .field
     = f.label :username
-    %br
     = f.text_field :username
   .field
     = f.label :password
-    %br
     = f.password_field :password
   .field
+    = f.label :password_confirmation, 'Confirm Password'
+    = f.password_field :password_confirmation
+  .field
     = f.label :email
-    %br
     = f.email_field :email
   .actions
-    = f.submit
+    = f.submit class: 'btn'

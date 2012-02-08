@@ -2,20 +2,21 @@
   = notice
 
 %p
-  %b First name:
-  = @user.first_name
-%p
-  %b Last name:
-  = @user.last_name
+  %b Name:
+  %span= @user.name
 %p
   %b Username:
-  = @user.username
+  %span= @user.username
 %p
   %b Password:
-  = @user.password
+  %span [Filtered]
 %p
   %b Email:
-  = @user.email
-= link_to 'Edit', edit_user_path(@user)
+  %span= @user.email
+
+= link_to 'Edit', edit_user_path(@user), class: 'btn'
 %span |
-= link_to 'Back', users_path
+- if current_user.admin
+  = link_to 'Back', manage_path, class: 'btn'
+- else
+  = link_to 'Back', welcomes_path, class: 'btn'

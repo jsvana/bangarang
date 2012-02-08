@@ -1,7 +1,8 @@
-%h1 Editing user
+%h1 Account Settings
 
 = render 'form'
 
-= link_to 'Show', @user
-%span |
-= link_to 'Back', users_path
+- if current_user.admin
+	= link_to 'Back', manage_path, class: 'btn'
+- else
+	= link_to 'Back', welcomes_path, class: 'btn'

@@ -1,6 +1,10 @@
 Bangarang::Application.routes.draw do
+  root to: "welcomes#index"
+
   get 'login' => 'sessions#new', as: 'login'
   get 'logout' => 'sessions#destroy', as: 'logout'
+
+  match "/manage" => "users#manage"
 
   resources :welcomes
   resources :sessions
@@ -65,7 +69,4 @@ Bangarang::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 
-  root to: "welcomes#index"
-
-  match "/approved" => "users#approved"
 end

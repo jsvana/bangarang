@@ -1,0 +1,11 @@
+.span4
+	%h1 Users
+
+	- @users.each do |user|
+		= div_for user do
+			%p.pad
+				= link_to user.username, user
+				- if user.approved
+					%span.right Approved
+				- else
+					= link_to "Approve", set_approved_user_path(user), confirm: 'Are you sure?', class: 'btn right', id: "#{user.id}_link", method: :put, remote: true

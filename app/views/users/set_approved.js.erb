@@ -1,2 +1,2 @@
-$('<p><%= @user.username %> approved</p>').insertAfter('#<%= dom_id(@user) %>').effect('highlight');
-$('#<%= dom_id(@user) %>').remove();
+$('<span class="right">Approved</span>').insertAfter('#<%= @user.id %>_link').effect('highlight');
+$('#<%= @user.id %>_link').remove();

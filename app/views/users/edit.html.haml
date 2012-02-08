@@ -2,11 +2,12 @@
 	Account Settings for 
 	= @user.username
 
-= render 'form'
+.span4.well
+	= render 'form'
 
-- unless @user == current_user
-	= link_to 'Delete User', @user, class: 'btn', confirm: 'Are you sure?', method: :delete
-- if current_user.admin
-	= link_to 'Back', users_path, class: 'btn'
-- else
-	= link_to 'Back', welcomes_path, class: 'btn'
+	- unless @user == current_user
+		= link_to 'Delete User', @user, class: 'btn', confirm: 'Are you sure?', method: :delete
+	- if current_user.admin
+		= link_to 'Back', users_path, class: 'btn'
+	- else
+		= link_to 'Back', welcomes_path, class: 'btn'

@@ -83,9 +83,9 @@ class ServersController < ApplicationController
     end
   end
 
-  # GET /servers/status
+  # GET /status
   def status
-    @statuses = Status.all
+    @servers = Server.all
 
     respond_to do |format|
       format.html { render }

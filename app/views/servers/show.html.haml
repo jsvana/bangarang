@@ -1,15 +1,8 @@
-%p#notice= notice
+%h1= "#{@server.hostname}.#{@server.domain}"
+%p.gray= @server.ip
 
-%p
-  %b Hostname:
-  = @server.hostname
-%p
-  %b Domain:
-  = @server.domain
-%p
-  %b Ip:
-  = @server.ip
-
-= link_to 'Edit', edit_server_path(@server)
-\|
-= link_to 'Back', servers_path
+%ul.unstyled
+	= "#{@server.status.ports_open} Open Ports"
+	- @server.status.ports.split(',').each do |port|
+		%li= port
+= link_to 'Back', status_path, class: 'btn'

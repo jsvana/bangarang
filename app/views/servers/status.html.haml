@@ -1,4 +1,19 @@
 %h1 Server Status
 
-- @statuses.each do |status|
-	%p= status.server.hostname
+.span4
+	%table.table
+		%thead
+			%tr
+				%th Server
+				%th Status
+		%tbody
+			- @servers.each do |server|
+				%tr
+					%td
+						- if !server.nickname.nil? && server.nickname.length > 0
+							= link_to "#{server.nickname}", server, class: 'big'
+							%br
+							%span.gray= "(#{server.hostname}.#{server.domain})"
+						- else
+							= link_to "#{server.hostname}.#{server.domain}", server, class: 'big'
+					%td{class: "#{server.status.up ? "green" : "red"}"}= server.status.up ? "Up" : "Down"

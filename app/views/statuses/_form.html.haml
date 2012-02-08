@@ -1,0 +1,22 @@
+= form_for @status do |f|
+  -if @status.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@status.errors.count, "error")} prohibited this status from being saved:"
+      %ul
+        - @status.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :server_id
+    = f.number_field :server_id
+  .field
+    = f.label :up
+    = f.check_box :up
+  .field
+    = f.label :ports_open
+    = f.number_field :ports_open
+  .field
+    = f.label :ports
+    = f.text_field :ports
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,14 @@
+%h1 Manage Servers
+
+- @servers.each do |server|
+	%p.pad
+		- if server.nickname.nil? || server.nickname.length == 0
+			= link_to "#{server.hostname}.#{server.domain}", edit_server_path(server), class: 'big'
+		- else
+			= link_to "#{server.nickname}", edit_server_path(server), class: 'big'
+			%br
+			%span.gray= "#{server.hostname}.#{server.domain}"
+		%br
+		%span.gray= server.ip
+
+= link_to 'Add Server', new_server_path, class: 'btn'

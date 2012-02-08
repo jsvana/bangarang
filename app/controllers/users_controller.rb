@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :ensure_logged_in, only: [:manage, :set_approved]
+  before_filter :ensure_logged_in, except: [:new, :create]
+  before_filter :ensure_admin, only: [:manage, :set_approved]
 
   # GET /users
   # GET /users.json
@@ -56,8 +57,13 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        UserMailer.admin_email(@user).deliver
-        format.html { redirect_to @user, notice: "An email has been sent to the administrator for review and addition." }
+        format.html do
+          if current_user && current_user.admin
+            redirect_to users_path, notice: 'User created.'
+          else
+            redirect_to root_path, notice: "An email has been sent to the administrator for review and addition."
+          end
+        end
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
@@ -120,8 +126,14 @@ class UsersController < ApplicationController
   private
 
   def ensure_logged_in
+    unless current_user
+      redirect_to login_path
+    end
+  end
+
+  def ensure_admin
     unless current_user && current_user.admin
-      redirect_to '/login'
+      redirect_to login_path
     end
   end
 end

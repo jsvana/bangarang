@@ -17,6 +17,6 @@
 = link_to 'Edit', edit_user_path(@user), class: 'btn'
 %span |
 - if current_user.admin
-  = link_to 'Back', manage_path, class: 'btn'
+  = link_to 'Back', users_path, class: 'btn'
 - else
   = link_to 'Back', welcomes_path, class: 'btn'

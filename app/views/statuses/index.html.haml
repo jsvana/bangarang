@@ -1,0 +1,24 @@
+%h1 Listing statuses
+
+%table
+  %tr
+    %th Server
+    %th Up
+    %th Ports open
+    %th Ports
+    %th
+    %th
+    %th
+
+  %tr
+    %td= @server.hostname
+    %td= @status.up
+    %td= @status.ports_open
+    %td= @status.ports
+    %td= link_to 'Show', @status
+    %td= link_to 'Edit', edit_status_path(@status)
+    %td= link_to 'Destroy', @status, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Status', new_status_path

@@ -1,5 +1,11 @@
 %h1 Log in
 
+- flash.each do |key, value|
+	.alert.alert-block.alert-error.fade.in
+		= link_to raw('&times;'), '#', class: 'close', "data-dismiss" => 'alert'
+		%h4.alert-heading Error logging in
+		%span= value
+
 = form_tag sessions_path do
 	.field
 		= label_tag :username

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  server_id: 1
+  up: false
+  ports_open: 1
+  ports: MyString
+
+two:
+  server_id: 1
+  up: false
+  ports_open: 1
+  ports: MyString

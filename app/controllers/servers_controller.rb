@@ -86,10 +86,6 @@ class ServersController < ApplicationController
   # GET /status
   def status
     @servers = Server.all
-
-    respond_to do |format|
-      format.html { render }
-    end
   end
 
   private

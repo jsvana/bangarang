@@ -43,6 +43,7 @@ class ServersController < ApplicationController
   # POST /servers.json
   def create
     @server = Server.new(params[:server])
+    @server.create_status(up: false, ports_open: 0, ports: '')
 
     respond_to do |format|
       if @server.save

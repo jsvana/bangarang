@@ -1,8 +1,21 @@
 %h1= "#{@server.hostname}.#{@server.domain}"
 %p.gray= @server.ip
 
-%ul.unstyled
-	= "#{@server.status.ports_open} Open Ports"
-	- @server.status.ports.split(',').each do |port|
-		%li= port
-= link_to 'Back', status_path, class: 'btn'
+%p.big= "Uptime: #{@server.status.uptime_tos}"
+
+.span4
+	= "#{pluralize @server.status.ports_open, 'Open Port'}"
+	%table.table.table-striped
+		%thead
+			%tr
+				%th Port
+				%th Protocol
+				%th Service
+		%tbody
+			- @server.status.ports.split(',').each do |port|
+				%tr
+					- p = port.split("/"); a = p[1].split(" ")
+					%td= p[0]
+					%td= a[0]
+					%td= a[1]
+	= link_to 'Back', status_path, class: 'btn'

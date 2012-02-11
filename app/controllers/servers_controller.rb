@@ -47,6 +47,8 @@ class ServersController < ApplicationController
 
     respond_to do |format|
       if @server.save
+        Server.update_statuses
+        
         format.html { redirect_to servers_path, notice: 'Server was successfully created.' }
         format.json { render json: @server, status: :created, location: @server }
       else
@@ -87,6 +89,15 @@ class ServersController < ApplicationController
   # GET /status
   def status
     @servers = Server.all
+  end
+
+  # GET /status_forceupdate
+  def status_forceupdate
+    Server.update_statuses
+
+    @servers = Server.all
+
+    redirect_to status_path, notice: 'Server statuses updated.'
   end
 
   private

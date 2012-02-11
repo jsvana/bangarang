@@ -31,7 +31,8 @@
 			.row-fluid
 				.span12
 					%header#header
-						= image_tag "logo.png", width: 700
+						= link_to root_path, title: 'Home' do
+							= image_tag "logo.png", width: 700
 			
 			%hr
 

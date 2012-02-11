@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120208131609) do
+ActiveRecord::Schema.define(:version => 20120211205137) do
 
   create_table "servers", :force => true do |t|
     t.string   "hostname"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20120208131609) do
     t.string   "ports"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uptime"
   end
 
   create_table "users", :force => true do |t|

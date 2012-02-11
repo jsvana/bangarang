@@ -10,6 +10,7 @@ gem 'sqlite3'
 gem 'haml-rails'
 
 gem 'ipaddress'
+gem 'net-ssh'
 
 gem 'whenever'
 

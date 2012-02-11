@@ -1,7 +1,12 @@
 %h1 Server Status
 
 .span4
-	%table.table
+	- flash.each do |key, value|
+		.alert.alert-block.alert-info.fade.in
+			= link_to raw('&times;'), '#', class: 'close', "data-dismiss" => 'alert'
+			%h4.alert-heading Information
+			%span= value
+	%table.table.table-striped
 		%thead
 			%tr
 				%th Server
@@ -13,7 +18,8 @@
 						- if !server.nickname.nil? && server.nickname.length > 0
 							= link_to "#{server.nickname}", server, class: 'big'
 							%br
-							%span.gray= "(#{server.hostname}.#{server.domain})"
+							%span.gray= "(#{server})"
 						- else
-							= link_to "#{server.hostname}.#{server.domain}", server, class: 'big'
+							= link_to "#{server}", server, class: 'big'
 					%td{class: "#{server.status.up ? "green" : "red"}"}= server.status.up ? "Up" : "Down"
+	= link_to 'Force Update', status_forceupdate_path, class: 'btn', id: 'status_forceupdate'

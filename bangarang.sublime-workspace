@@ -44,42 +44,26 @@
 	"buffers":
 	[
 		{
-			"file": "Gemfile",
+			"file": "app/views/layouts/application.html.haml",
 			"settings":
 			{
-				"buffer_size": 709,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Gemfile.lock",
+			"file": "app/views/users/show.html.haml",
 			"settings":
 			{
-				"buffer_size": 2642,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "README",
+			"file": "app/views/welcomes/index.html.haml",
 			"settings":
 			{
-				"buffer_size": 9208,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Rakefile",
-			"settings":
-			{
-				"buffer_size": 274,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "config.ru",
-			"settings":
-			{
-				"buffer_size": 159,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -87,7 +71,23 @@
 			"file": "app/assets/stylesheets/scaffolds.css.scss",
 			"settings":
 			{
-				"buffer_size": 1363,
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/jsvana/notes/NetworkingII/Notes 6 Feb 2012",
+			"settings":
+			{
+				"buffer_size": 1314,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/jsvana/notes/NetworkingII/Notes 8 Feb 2012",
+			"settings":
+			{
+				"buffer_size": 1018,
 				"line_ending": "Unix"
 			}
 		}
@@ -168,8 +168,33 @@
 	},
 	"file_history":
 	[
-		"/home/jsvana/bangarang/app/views/layouts/application.html.erb",
-		"/home/jsvana/bangarang/bangarang.sublime-project",
+		"/Users/jsvana/artemis/bangarang/bangarang.sublime-workspace",
+		"/Users/jsvana/artemis/bangarang/app/views/users/new.html.haml",
+		"/Users/jsvana/artemis/bangarang/app/views/sessions/new.html.haml",
+		"/Users/jsvana/artemis/bangarang/app/views/welcomes/index.html.haml",
+		"/Users/jsvana/artemis/bangarang/app/views/users/_form.html.haml",
+		"/Users/jsvana/artemis/bangarang/app/views/users/approved.html.haml",
+		"/Users/jsvana/artemis/bangarang/app/views/users/edit.html.haml",
+		"/Users/jsvana/artemis/bangarang/app/views/users/index.html.haml",
+		"/Users/jsvana/artemis/bangarang/app/views/users/approved.html.erb",
+		"/Users/jsvana/artemis/bangarang/app/views/users/_form.html.erb",
+		"/Users/jsvana/notes/NetworkingII/Notes 3 Feb 2012",
+		"/Users/jsvana/artemis/bangarang/app/models/user.rb",
+		"/Users/jsvana/Library/Application Support/Sublime Text 2/Packages/User/Global.sublime-settings",
+		"/Users/jsvana/artemis/bangarang/Gemfile",
+		"/Users/jsvana/artemis/bangarang/app/controllers/users_controller.rb",
+		"/Users/jsvana/artemis/bangarang/app/controllers/application_controller.rb",
+		"/Users/jsvana/artemis/bangarang/app/controllers/sessions_controller.rb",
+		"/Users/jsvana/artemis/bangarang/app/assets/stylesheets/scaffolds.css.scss",
+		"/Users/jsvana/artemis/bangarang/app/views/layouts/application.html.erb",
+		"/Users/jsvana/artemis/bangarang/app/views/welcomes/index.html.erb",
+		"/Users/jsvana/notes/NetworkingII/Notes 30 Jan 2012",
+		"/Users/jsvana/notes/NetworkingII/Notes 1 Feb 2012",
+		"/Users/jsvana/artemis/add.rb",
+		"/Users/jsvana/artemis/bangarang/config.ru",
+		"/Users/jsvana/artemis/bangarang/Rakefile",
+		"/Users/jsvana/artemis/bangarang/README",
+		"/Users/jsvana/artemis/bangarang/Gemfile.lock",
 		"/Users/jsvana/artemis/home/jsvana/bangarang/Gemfile",
 		"/Users/jsvana/artemis/home/jsvana/bangarang/Gemfile.lock",
 		"/Users/jsvana/artemis/home/jsvana/bangarang/README",
@@ -253,7 +278,6 @@
 		"/Users/jsvana/Library/Application Support/Sublime Text 2/Packages/User/Base File.sublime-settings",
 		"/Users/jsvana/Library/Application Support/Sublime Text 2/Packages/Default/Base File.sublime-settings",
 		"/Users/jsvana/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
-		"/Users/jsvana/Library/Application Support/Sublime Text 2/Packages/User/Global.sublime-settings",
 		"/Users/jsvana/decoded/index.php",
 		"/Users/jsvana/Downloads/h5bp-html5-boilerplate-007754e/index.html",
 		"/Users/jsvana/fmt.pl",
@@ -271,24 +295,7 @@
 		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/defines.h",
 		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/encoded.c",
 		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/error.c",
-		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/error.h",
-		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/graphics.c",
-		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/graphics.h",
-		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/helper.c",
-		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/helper.h",
-		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/input.c",
-		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/input.h",
-		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/lib.c",
-		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/lib.h",
-		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/Makefile",
-		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/structs.h",
-		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/charsets/generichero.png",
-		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/maps/map2.c",
-		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/maps/map1.c",
-		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/maps/Makefile",
-		"/Users/jsvana/Desktop/index.php",
-		"/Users/jsvana/Desktop/test.c",
-		"/Users/jsvana/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap"
+		"/Users/jsvana/Downloads/belak-encoded-5656915a339c/error.h"
 	],
 	"find":
 	{
@@ -390,10 +397,10 @@
 			[
 				{
 					"buffer": 0,
-					"file": "Gemfile",
+					"file": "app/views/layouts/application.html.haml",
 					"settings":
 					{
-						"buffer_size": 709,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -406,7 +413,9 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Rails/Ruby Haml.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -416,10 +425,10 @@
 				},
 				{
 					"buffer": 1,
-					"file": "Gemfile.lock",
+					"file": "app/views/users/show.html.haml",
 					"settings":
 					{
-						"buffer_size": 2642,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -432,7 +441,7 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"syntax": "Packages/Rails/Ruby Haml.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -444,10 +453,10 @@
 				},
 				{
 					"buffer": 2,
-					"file": "README",
+					"file": "app/views/welcomes/index.html.haml",
 					"settings":
 					{
-						"buffer_size": 9208,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -460,9 +469,7 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Rails/Ruby Haml.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -472,10 +479,10 @@
 				},
 				{
 					"buffer": 3,
-					"file": "Rakefile",
+					"file": "app/assets/stylesheets/scaffolds.css.scss",
 					"settings":
 					{
-						"buffer_size": 274,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -488,28 +495,30 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+							"syntax": "Packages/SASS/Syntaxes/SASS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 295.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "config.ru",
+					"file": "/Users/jsvana/notes/NetworkingII/Notes 6 Feb 2012",
 					"settings":
 					{
-						"buffer_size": 159,
+						"buffer_size": 1314,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								563,
+								563
 							]
 						],
 						"settings":
@@ -524,25 +533,23 @@
 				},
 				{
 					"buffer": 5,
-					"file": "app/assets/stylesheets/scaffolds.css.scss",
+					"file": "/Users/jsvana/notes/NetworkingII/Notes 8 Feb 2012",
 					"settings":
 					{
-						"buffer_size": 1363,
+						"buffer_size": 1018,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1017,
+								1017
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

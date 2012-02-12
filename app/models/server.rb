@@ -5,6 +5,7 @@ class Server < ActiveRecord::Base
 	validates :ip, presence: true, format: { with: /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/([1-3][0-9]|[1-9])$/i }
 
 	has_one :status
+	has_many :status_data, through: :status
 
 	def self.update_statuses
 		puts "[LOG] Updating server statuses..."
@@ -21,7 +22,7 @@ class Server < ActiveRecord::Base
 			server.status.ports = ports.join(',')
 
 			begin
-				Net::SSH.start(server.to_s, 'ruby', password: 'gem', timeout: 2) do |ssh|
+				Net::SSH.start(server.to_s, 'ruby', password: 'gem', timeout: 5) do |ssh|
 					stdout = ""
 					ssh.exec!("uptime") do |channel, stream, data|
 						stdout << data if stream == :stdout
@@ -30,11 +31,8 @@ class Server < ActiveRecord::Base
 
 					data = data.split(":")
 
-					uptime = "#{data[0]}:#{data[1]}:#{data[2]}"
-					users = "#{data[3]}"
-					load = "#{data[4]}:#{data[5]}:#{data[6]}"
-
-					server.status.uptime = uptime
+					server.status.uptime = "#{data[0]}:#{data[1]}:#{data[2]}"
+					server.status.status_data.create(user_count: Integer(data[3]), last_minute_load: Integer(Float(data[4]) * 100), last_five_load: Integer(Float(data[5]) * 100), last_fifteen_load: Integer(Float(data[6]) * 100))
 
 					#puts "[LOG] #{uptime}"
 					#puts "[LOG] #{users}"

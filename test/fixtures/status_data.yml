@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  status_id: 1
+  user_count: 1
+  last_minute_load: 1
+  last_five_load: 1
+  last_fifteen_load: 1
+
+two:
+  status_id: 1
+  user_count: 1
+  last_minute_load: 1
+  last_five_load: 1
+  last_fifteen_load: 1

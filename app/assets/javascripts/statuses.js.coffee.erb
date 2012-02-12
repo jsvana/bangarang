@@ -1,0 +1,87 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+
+$ ->
+	load_chart = new Highcharts.Chart
+		chart:
+			renderTo: 'load-container'
+			defaultSeriesType: 'line'
+		,
+		title:
+			text: 'Load Averages'
+		,
+		xAxis:
+			title:
+				text: 'Time Since Start'
+			,
+			labels:
+				formatter: ->
+					this.value
+		,
+		yAxis:
+			title:
+				text: 'Percent Load'
+			,
+			min: 0
+			max: 100
+		,
+		plotOptions:
+			area:
+				marker:
+					enabled: false
+					symbol: 'circle'
+					radius: 2
+					states:
+						hover:
+							enabled: true
+		,
+		series: [
+			{
+				name: 'Fifteen Minute Average'
+				data: window.App.Data.fifteen_data
+			},
+			{
+				name: 'Five Minute Average'
+				data: window.App.Data.five_data
+			},
+			{
+				name: 'Minute Average'
+				data: window.App.Data.minute_data
+			}
+		]
+
+	users_chart = new Highcharts.Chart
+		chart:
+			renderTo: 'users-container'
+			defaultSeriesType: 'line'
+		,
+		title:
+			text: 'User Count'
+		,
+		xAxis:
+			title:
+				text: 'Time Since Start'
+		,
+		yAxis:
+			title:
+				text: 'Users'
+			,
+			min: 0
+		,
+		plotOptions:
+			area:
+				marker:
+					enabled: false
+					symbol: 'circle'
+					radius: 2
+					states:
+						hover:
+							enabled: true
+		,
+		series: [
+			{
+				name: 'Users'
+				data: window.App.Data.users_data
+			}
+		]

@@ -3,19 +3,35 @@
 
 %p.big= "Uptime: #{@server.status.uptime_tos}"
 
-.span4
-	= "#{pluralize @server.status.ports_open, 'Open Port'}"
-	%table.table.table-striped
-		%thead
-			%tr
-				%th Port
-				%th Protocol
-				%th Service
-		%tbody
-			- @server.status.ports.split(',').each do |port|
+.row-fluid
+	.span6
+		#load-container
+	.span6
+		#users-container
+
+%script
+	window.App = window.App || {};
+	window.App.Data = window.App.Data || {};
+	= "window.App.Data.minute_data = [#{@minute_load}];"
+	= "window.App.Data.five_data = [#{@five_load}];"
+	= "window.App.Data.fifteen_data = [#{@fifteen_load}];"
+	= "window.App.Data.users_data = [#{@users_load}];"
+
+.row-fluid
+	.span12
+		= "#{pluralize @server.status.ports_open, 'Open Port'}"
+		%table.table.table-striped
+			%thead
 				%tr
-					- p = port.split("/"); a = p[1].split(" ")
-					%td= p[0]
-					%td= a[0]
-					%td= a[1]
-	= link_to 'Back', status_path, class: 'btn'
+					%th Port
+					%th Protocol
+					%th Service
+			%tbody
+				- @server.status.ports.split(',').each do |port|
+					%tr
+						- p = port.split("/"); a = p[1].split(" ")
+						%td= p[0]
+						%td= a[0]
+						%td= a[1]
+
+= link_to 'Back', status_path, class: 'btn'

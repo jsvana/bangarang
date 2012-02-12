@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120211205137) do
+ActiveRecord::Schema.define(:version => 20120212083428) do
+
+  create_table "movies", :force => true do |t|
+    t.integer  "imdb_id"
+    t.string   "title"
+    t.integer  "year"
+    t.text     "description"
+    t.string   "director"
+    t.string   "writer"
+    t.integer  "runtime"
+    t.string   "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "servers", :force => true do |t|
     t.string   "hostname"
@@ -20,6 +33,16 @@ ActiveRecord::Schema.define(:version => 20120211205137) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "nickname"
+  end
+
+  create_table "status_data", :force => true do |t|
+    t.integer  "status_id"
+    t.integer  "user_count"
+    t.integer  "last_minute_load"
+    t.integer  "last_five_load"
+    t.integer  "last_fifteen_load"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "statuses", :force => true do |t|

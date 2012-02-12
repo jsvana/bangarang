@@ -1,4 +1,6 @@
 Bangarang::Application.routes.draw do
+  resources :movies
+
   resources :statuses
 
   root to: "welcomes#index"

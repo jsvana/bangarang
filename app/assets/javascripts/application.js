@@ -8,4 +8,5 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require bootstrap.js
+//= require highcharts.js
 //= require_tree .

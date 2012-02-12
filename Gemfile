@@ -11,6 +11,7 @@ gem 'haml-rails'
 
 gem 'ipaddress'
 gem 'net-ssh'
+gem 'imdb'
 
 gem 'whenever'
 

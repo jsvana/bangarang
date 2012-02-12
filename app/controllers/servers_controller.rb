@@ -16,6 +16,26 @@ class ServersController < ApplicationController
   # GET /servers/1.json
   def show
     @server = Server.find(params[:id])
+    minute_data = Array.new
+    five_data = Array.new
+    fifteen_data = Array.new
+    users_data = Array.new
+    
+    puts "[LOG] #{users_data}"
+
+    @server.status.status_data.each do |datum|
+      minute_data << datum.last_minute_load
+      five_data << datum.last_five_load
+      fifteen_data << datum.last_fifteen_load
+      users_data << datum.user_count
+    end
+    
+    puts "[LOG] #{users_data}"
+
+    @minute_load = minute_data.join(",")
+    @five_load = five_data.join(",")
+    @fifteen_load = fifteen_data.join(",")
+    @users_load = users_data.join(",")
 
     respond_to do |format|
       format.html # show.html.erb

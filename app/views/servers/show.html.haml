@@ -19,19 +19,20 @@
 
 .row-fluid
 	.span12
-		= "#{pluralize @server.status.ports_open, 'Open Port'}"
-		%table.table.table-striped
-			%thead
-				%tr
-					%th Port
-					%th Protocol
-					%th Service
-			%tbody
-				- @server.status.ports.split(',').each do |port|
+		%p.big= "#{pluralize @server.status.ports_open, 'Open Port'}"
+		- unless @server.status.ports_open == 0
+			%table.table.table-striped.table-condensed
+				%thead
 					%tr
-						- p = port.split("/"); a = p[1].split(" ")
-						%td= p[0]
-						%td= a[0]
-						%td= a[1]
+						%th Port
+						%th Protocol
+						%th Service
+				%tbody
+					- @server.status.ports.split(',').each do |port|
+						%tr
+							- p = port.split("/"); a = p[1].split(" ")
+							%td= p[0]
+							%td= a[0]
+							%td= a[1]
 
 = link_to 'Back', status_path, class: 'btn'

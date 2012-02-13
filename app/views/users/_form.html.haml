@@ -24,11 +24,13 @@
     = f.email_field :email
   - if current_user && current_user.admin
     .field
-      = f.label :approved
-      = f.check_box :approved
+      = f.label :approved, class: 'checkbox' do
+        = f.check_box :approved
+        Approved
     .field
-      = f.label :admin
-      = f.check_box :admin
+      = f.label :admin, class: 'checkbox' do
+        = f.check_box :admin
+        Admin
   .actions
-    %br/
+    /%br/
     = f.submit class: 'btn-primary'

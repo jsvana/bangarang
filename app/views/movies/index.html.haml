@@ -9,9 +9,13 @@
 						= link_to movie do
 							= image_tag movie.cover_url
 					.span7
-						%span.bigger= movie.title
+						%span.bigger= link_to movie.title, movie
 						%p.big.gray= movie.director
 						%p.big= movie.description
+						%p= "#{movie.rating}/10"
+					.span3
+						= link_to 'More Info', movie, class: 'btn'
+
 	.row-fluid
 		- if current_user && current_user.admin
 			= link_to 'Force Update', movies_forceupdate_path, class: 'btn'

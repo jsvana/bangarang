@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120212083428) do
+ActiveRecord::Schema.define(:version => 20120212223533) do
 
   create_table "movies", :force => true do |t|
-    t.integer  "imdb_id"
+    t.string   "imdb_id"
     t.string   "title"
     t.integer  "year"
     t.text     "description"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20120212083428) do
     t.string   "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cover_url"
   end
 
   create_table "servers", :force => true do |t|

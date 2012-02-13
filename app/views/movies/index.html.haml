@@ -1,17 +1,17 @@
-%h1 Listing movies
+.container-fluid
+	.row-fluid
+		.span10
+			%h1 Listing movies
 
-%table
-  %tr
-    %th
-    %th
-    %th
-
-  - @movies.each do |movie|
-    %tr
-      %td= link_to 'Show', movie
-      %td= link_to 'Edit', edit_movie_path(movie)
-      %td= link_to 'Destroy', movie, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Movie', new_movie_path
+			- @movies.each do |movie|
+				.row-fluid.well
+					.span2
+						= link_to movie do
+							= image_tag movie.cover_url
+					.span7
+						%span.bigger= movie.title
+						%p.big.gray= movie.director
+						%p.big= movie.description
+	.row-fluid
+		- if current_user && current_user.admin
+			= link_to 'Force Update', movies_forceupdate_path, class: 'btn'

@@ -80,4 +80,13 @@ class MoviesController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  # GET /movies_forceupdate
+  def forceupdate
+    Movie.update_movies
+
+    @movies = Movie.all
+
+    redirect_to movies_path, notice: 'Movies Updated.'
+  end
 end

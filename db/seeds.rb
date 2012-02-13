@@ -16,3 +16,8 @@ Status.delete_all
 hyperion.create_status(up: true, ports_open: 5, ports: '22,53,80,443,25565')
 artemis.create_status(up: false, ports_open: 1, ports: '22')
 apollo.create_status(up: true, ports_open: 3, ports: '22,80,9001')
+
+Movie.delete_all
+
+Movie.create(imdb_id: 'tt0499549', title: 'Avatar', year: 2009, description: 'A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.', director: 'James Cameron', writer: 'James Cameron', runtime: 162, rating: '8.1')
+Movie.create(imdb_id: 'tt0325980', title: 'Pirates of the Caribbean: The Curse of the Black Pearl', year: 2003, description: 'Blacksmith Will Turner teams up with eccentric pirate "Captain" Jack Sparrow to save his love, the governor\'s daughter, from Jack\'s former pirate allies, who are now undead.', director: 'Gore Verbinski', writer: 'Ted Elliot', runtime: 143, rating: '8.0')

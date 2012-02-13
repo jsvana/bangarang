@@ -9,7 +9,9 @@ Bangarang::Application.routes.draw do
   get 'logout' => 'sessions#destroy', as: 'logout'
   get 'status' => 'servers#status', as: 'status'
   get 'status_forceupdate' => 'servers#status_forceupdate', as: 'status_forceupdate'
+  get 'movies_forceupdate' => 'movies#forceupdate', as: 'movies_forceupdate'
 
+  resources :movies
   resources :servers
   resources :sessions
   resources :users do

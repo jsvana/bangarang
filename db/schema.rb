@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120212223533) do
+ActiveRecord::Schema.define(:version => 20120213162541) do
 
   create_table "movies", :force => true do |t|
     t.string   "imdb_id"
@@ -25,6 +25,9 @@ ActiveRecord::Schema.define(:version => 20120212223533) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "cover_url"
+    t.string   "definition"
+    t.boolean  "hd",          :default => false
+    t.string   "filename"
   end
 
   create_table "servers", :force => true do |t|

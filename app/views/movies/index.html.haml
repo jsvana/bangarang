@@ -1,7 +1,7 @@
 .container-fluid
 	.row-fluid
 		.span10
-			%h1 Listing movies
+			%h1 Movies
 
 			- @movies.each do |movie|
 				.row-fluid.well
@@ -10,11 +10,23 @@
 							= image_tag movie.cover_url
 					.span7
 						%span.bigger= link_to movie.title, movie
-						%p.big.gray= movie.director
+						%br/
+						- if movie.hd
+							%span.label HD
+							%span= " | "
+						%span.big.gray= movie.director
 						%p.big= movie.description
-						%p= "#{movie.rating}/10"
+						%p= "Rating: #{movie.rating}/10"
+						.progress.progress-success.progress-striped{style: 'width:100px'}
+							.bar{style: "width:#{(Float(movie.rating) * 10).floor}%"}
 					.span3
-						= link_to 'More Info', movie, class: 'btn'
+						%h2 Download
+						- if !movie.definition.nil? && movie.definition.length > 0
+							- movie.definition.split(",").each do |definition|
+								- data = definition.split(":")
+								= link_to data[0], "https://std.jsvana.com/hdmov/#{data[1]}", class: 'btn'
+						- else
+							= link_to 'Standard', '/download', class: 'btn'
 
 	.row-fluid
 		- if current_user && current_user.admin

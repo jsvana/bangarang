@@ -6,35 +6,56 @@ class Movie < ActiveRecord::Base
 	def self.update_movies
 		puts "[LOG] Updating movies..."
 
-		Net::SSH.start('std.jsvana.com', 'ruby', password: 'gem') do |ssh|
-			stdout = ""
-			ssh.exec!("ls /media/bangarang/HD\\ Movies") do |channel, stream, data|
-				stdout << data if stream == :stdout
-			end
+		begin
+			Net::SSH.start('std.jsvana.com', 'ruby', password: 'gem') do |ssh|
+				stdout = ""
+				ssh.exec!("ls -R /media/bangarang/HD\\ Movies | grep -v '^\\/' | grep -v '^$' | grep -E '.mp4|.mkv|.avi'") do |channel, stream, data|
+					stdout << data if stream == :stdout
+				end
 
-			data = stdout.split("\n")
+				data = stdout.split("\n")[0...20]
 
-			puts "[LOG] #{data}"
+				puts "[LOG] #{data}"
 
-			Movie.delete_all
+				Movie.delete_all
 
-			data.each do |datum|
-				title = datum.gsub(/^(.*?)(\.(?:Extended))?\.\d{4}.*?\.(?:mp4|avi|mkv)$/, '\1').gsub(/\./, ' ')
-				search = Imdb::Search.new(title)
+				data.each do |datum|
+					title = datum.gsub(/^(.*?)(\.(?:Extended))?\.\d{4}.*?\.(?:mp4|avi|mkv)$/, '\1').gsub(/\./, ' ')
+					quality = datum.gsub(/^.*?(1080p|720p).*?$/, '\1')
+					hd = false
 
-				begin
-					movie = Imdb::Movie.new(search.movies[0].id)
-
-					puts "[LOG] #{movie.director}"
-
-					unless movie.poster.nil?
-						Movie.create(imdb_id: movie.id, title: movie.title, year: movie.year, description: movie.plot, director: movie.director[0], runtime: movie.length, rating: "#{movie.rating}", cover_url: movie.poster)
+					if quality == datum
+						quality = ''
+					else
+						hd = true
 					end
-				rescue
-					puts "[LOG] Unable to add movie \"#{datum}\""
+
+					search = Imdb::Search.new(title)
+
+					begin
+						movie = Imdb::Movie.new(search.movies[0].id)
+
+						puts "[LOG] #{movie.director}"
+
+						unless movie.poster.nil?
+							m = Movie.where(title: movie.title)
+							puts "[LOG] #{m.inspect}"
+							if m.length == 0
+								Movie.create(imdb_id: movie.id, title: movie.title, year: movie.year, description: movie.plot, director: movie.director[0], runtime: movie.length, rating: "#{movie.rating}", cover_url: movie.poster, definition: "#{quality}:#{datum}", hd: hd, filename: datum)
+							else
+								#m.update_attributes(definition: quality)#m.definition + "," + quality)
+								m[0].definition += ",#{quality}:#{datum}"
+								m[0].save
+							end
+						end
+					rescue StandardError => e
+						puts "[LOG] Unable to add movie \"#{datum}\", error: #{e.to_s}"
+					end
 				end
 			end
-		end
+		rescue StandardError => e
+          puts e.to_s
+        end
 
 		puts "[LOG] Update complete."
 	end

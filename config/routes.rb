@@ -12,6 +12,7 @@ Bangarang::Application.routes.draw do
   get 'movies_forceupdate' => 'movies#forceupdate', as: 'movies_forceupdate'
 
   resources :movies
+  resources :albums
   resources :servers
   resources :sessions
   resources :users do

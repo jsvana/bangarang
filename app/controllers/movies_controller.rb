@@ -89,4 +89,11 @@ class MoviesController < ApplicationController
 
     redirect_to movies_path, notice: 'Movies Updated.'
   end
+
+  # GET /movies/search
+  def search
+    @search_results = Movie.search(params[:movie][:search])
+
+    render 'index'
+  end
 end

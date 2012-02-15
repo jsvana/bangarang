@@ -1,5 +1,5 @@
 Bangarang::Application.routes.draw do
-  resources :movies
+  #resources :movies
 
   resources :statuses
 
@@ -11,7 +11,11 @@ Bangarang::Application.routes.draw do
   get 'status_forceupdate' => 'servers#status_forceupdate', as: 'status_forceupdate'
   get 'movies_forceupdate' => 'movies#forceupdate', as: 'movies_forceupdate'
 
-  resources :movies
+  resources :movies do
+    collection do
+      get 'search'
+    end
+  end
   resources :albums
   resources :servers
   resources :sessions

@@ -1,0 +1,17 @@
+%h1 Albums
+
+.accordion#albumAccordion
+	- @albums.each do |album|
+		.accordion-group
+			.accordion-heading
+				= link_to "#{album.name} by #{album.artist.name}", "##{dom_id(album)}", {class: "accordion-toggle", data: { toggle: "collapse", parent: "#albumAccordion" } }
+			.accordion-body.collapse{id: "#{dom_id(album)}"}
+				.accordion-inner
+					.container-fluid
+						.row-fluid
+							.span2
+								= link_to "#", class: 'thumbnail' do
+									= image_tag album.cover_url
+							.span8
+								- album.tracks.each_with_index do |track, index|
+									%p= "#{track.track_number}. #{track.title}"

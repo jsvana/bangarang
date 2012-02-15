@@ -20,6 +20,8 @@ class Movie < ActiveRecord::Base
 				Movie.delete_all
 
 				data.each do |datum|
+					puts "[LOG] Attempting to add #{datum}"
+
 					title = datum.gsub(/^(.*?)(\.(?:Extended))?\.\d{4}.*?\.(?:mp4|avi|mkv)$/, '\1').gsub(/\./, ' ')
 					quality = datum.gsub(/^.*?(1080p|720p).*?$/, '\1')
 					hd = false
@@ -35,11 +37,8 @@ class Movie < ActiveRecord::Base
 					begin
 						movie = Imdb::Movie.new(search.movies[0].id)
 
-						puts "[LOG] #{movie.director}"
-
 						unless movie.poster.nil?
 							m = Movie.where(title: movie.title)
-							puts "[LOG] #{m.inspect}"
 							if m.length == 0
 								Movie.create(imdb_id: movie.id, title: movie.title, year: movie.year, description: movie.plot, director: movie.director[0], runtime: movie.length, rating: "#{movie.rating}", cover_url: movie.poster, definition: "#{quality}:#{datum}", hd: hd, filename: datum)
 							else
@@ -58,5 +57,10 @@ class Movie < ActiveRecord::Base
         end
 
 		puts "[LOG] Update complete."
+	end
+
+	def self.search(search)
+		search_condition = "%" + search + "%"
+		find(:all, :conditions => ['title LIKE ?', search_condition])
 	end
 end

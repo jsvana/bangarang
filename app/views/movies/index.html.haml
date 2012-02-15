@@ -3,6 +3,13 @@
 		.span10
 			%h1 Movies
 
+			= render 'search'
+
+			- if @search_results && @search_results.length == 0
+				%h2 No results found.
+			- elsif @search_results && @search_results.length > 0
+				- @movies = @search_results
+
 			- @movies.each do |movie|
 				.row-fluid.well
 					.span2

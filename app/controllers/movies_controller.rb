@@ -81,7 +81,7 @@ class MoviesController < ApplicationController
     end
   end
 
-  # GET /movies_forceupdate
+  # GET /movies/forceupdate
   def forceupdate
     Movie.update_movies
 

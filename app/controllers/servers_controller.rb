@@ -106,13 +106,13 @@ class ServersController < ApplicationController
     end
   end
 
-  # GET /status
+  # GET /servers/status
   def status
     @servers = Server.all
   end
 
-  # GET /status_forceupdate
-  def status_forceupdate
+  # GET /servers/forceupdate
+  def forceupdate
     Server.update_statuses
 
     @servers = Server.all

@@ -2,7 +2,7 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.all
+    @albums = Album.includes(:tracks).order("tracks.track_number ASC").all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -79,5 +79,12 @@ class AlbumsController < ApplicationController
       format.html { redirect_to movies_url }
       format.json { head :ok }
     end
+  end
+
+  # GET /albums/forceupdate
+  def forceupdate
+    Track.update_music
+
+    redirect_to albums_path, notice: 'Music updated.'
   end
 end

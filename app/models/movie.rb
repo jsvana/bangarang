@@ -53,8 +53,8 @@ class Movie < ActiveRecord::Base
 				end
 			end
 		rescue StandardError => e
-          puts e.to_s
-        end
+					puts e.to_s
+				end
 
 		puts "[LOG] Update complete."
 	end

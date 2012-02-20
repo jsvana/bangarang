@@ -22,4 +22,4 @@
 						- else
 							= link_to "#{server}", server, class: 'big'
 					%td{class: "#{server.status.up ? "green" : "red"}"}= server.status.up ? "Up" : "Down"
-	= link_to 'Force Update', status_forceupdate_path, class: 'btn', id: 'status_forceupdate'
+	= link_to 'Force Update', forceupdate_servers_path, class: 'btn', id: 'status_forceupdate'

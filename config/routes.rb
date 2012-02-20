@@ -1,23 +1,26 @@
 Bangarang::Application.routes.draw do
-  #resources :movies
-
-  resources :statuses
-
   root to: "welcomes#index"
 
   get 'login' => 'sessions#new', as: 'login'
   get 'logout' => 'sessions#destroy', as: 'logout'
-  get 'status' => 'servers#status', as: 'status'
-  get 'status_forceupdate' => 'servers#status_forceupdate', as: 'status_forceupdate'
-  get 'movies_forceupdate' => 'movies#forceupdate', as: 'movies_forceupdate'
 
   resources :movies do
     collection do
       get 'search'
+      get 'forceupdate'
     end
   end
-  resources :albums
-  resources :servers
+  resources :albums do
+    collection do
+      get 'forceupdate'
+    end
+  end
+  resources :servers do
+    collection do
+      get 'forceupdate'
+      get 'status'
+    end
+  end
   resources :sessions
   resources :users do
     put :set_approved, on: :member

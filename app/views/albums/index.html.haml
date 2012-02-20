@@ -15,3 +15,5 @@
 							.span8
 								- album.tracks.each_with_index do |track, index|
 									%p= "#{track.track_number}. #{track.title}"
+
+= link_to 'Force Update', forceupdate_albums_path, class: 'btn'

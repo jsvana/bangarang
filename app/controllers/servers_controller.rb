@@ -117,7 +117,7 @@ class ServersController < ApplicationController
 
     @servers = Server.all
 
-    redirect_to status_path, notice: 'Server statuses updated.'
+    redirect_to status_servers_path, notice: 'Server statuses updated.'
   end
 
   private

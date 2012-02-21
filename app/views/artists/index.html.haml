@@ -1,0 +1,8 @@
+%h1 Artists
+
+- @artists.each do |artist|
+	%h2= artist.name
+	- artist.albums.each do |album|
+		%h4= album.name
+		- album.tracks.each do |track|
+			%p= "#{track.track_number}. #{track.title}"

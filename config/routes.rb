@@ -10,6 +10,7 @@ Bangarang::Application.routes.draw do
       get 'forceupdate'
     end
   end
+  resources :artists
   resources :albums do
     collection do
       get 'forceupdate'

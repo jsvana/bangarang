@@ -4,17 +4,19 @@ class Track < ActiveRecord::Base
   has_one :artist
   has_one :album
 
+  default_scope order(:track_number)
+
   def self.update_music
   	puts "[LOG] Updating music..."
 
 		begin
 			Net::SSH.start('std.jsvana.com', 'ruby', password: 'gem') do |ssh|
 				stdout = ""
-				ssh.exec!("./scan Music/Dragonforce") do |channel, stream, data|
+				ssh.exec!("./scan Music/Q*") do |channel, stream, data|
 					stdout << data if stream == :stdout
 				end
 
-				data = stdout.split("\n")[0...20]
+				data = stdout.split("\n")
 
 				puts "[LOG] #{data}"
 

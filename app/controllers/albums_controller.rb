@@ -2,7 +2,7 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.includes(:tracks).order("tracks.track_number ASC").all
+    @albums = Album.includes(:tracks).all
 
     respond_to do |format|
       format.html # index.html.erb

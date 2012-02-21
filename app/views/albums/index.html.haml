@@ -12,6 +12,8 @@
 							.span2
 								= link_to "#", class: 'thumbnail' do
 									= image_tag album.cover_url
+								%br
+								= link_to "Download", "/download", class: "btn"
 							.span8
 								- album.tracks.each_with_index do |track, index|
 									%p= "#{track.track_number}. #{track.title}"

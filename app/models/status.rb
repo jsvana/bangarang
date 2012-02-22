@@ -1,6 +1,6 @@
 class Status < ActiveRecord::Base
 	belongs_to :server
-	has_many :status_data, order: 'created_at DESC', limit: 10
+	has_many :status_data
 
 	def uptime_tos
 		if self.uptime && self.uptime.length > 0

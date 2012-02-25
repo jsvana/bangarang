@@ -9,3 +9,5 @@
 					%span.right Approved
 				- else
 					= link_to "Approve", set_approved_user_path(user), class: 'btn right', id: "#{user.id}_link", method: :put, remote: true
+	
+	= link_to 'New User', new_user_path, class: 'btn'

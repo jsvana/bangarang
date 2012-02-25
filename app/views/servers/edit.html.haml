@@ -2,4 +2,5 @@
 
 = render 'form'
 
+= link_to 'Delete Server', @server, class: 'btn', confirm: 'Are you sure?', method: :delete
 = link_to 'Back', servers_path, class: 'btn'

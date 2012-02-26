@@ -36,5 +36,6 @@
 							= link_to 'Standard', '/download', class: 'btn'
 
 	.row-fluid
+		= will_paginate @movies
 		- if current_user && current_user.admin
 			= link_to 'Force Update', forceupdate_movies_path, class: 'btn'

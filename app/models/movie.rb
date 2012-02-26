@@ -3,6 +3,8 @@ require 'net/ssh'
 class Movie < ActiveRecord::Base
 	scope :by_title, order(:title).all
 
+	self.per_page = 10
+
 	def self.update_movies
 		puts "[LOG] Updating movies..."
 
@@ -13,7 +15,7 @@ class Movie < ActiveRecord::Base
 					stdout << data if stream == :stdout
 				end
 
-				data = stdout.split("\n")[0...20]
+				data = stdout.split("\n")#[0...20]
 
 				puts "[LOG] #{data}"
 

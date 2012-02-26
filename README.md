@@ -1,6 +1,6 @@
 # Readme
 
-Website link: <http://www.bitbucket.org/jsvana/bangarang>
+Website link: <http://www.bitbucket.org/jsvana/bangarang>.
 
 Bangarang is an integrated user manager, server monitor, and file viewer.
 

@@ -13,6 +13,9 @@ gem 'ipaddress'
 gem 'net-ssh'
 gem 'imdb'
 
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+
 gem 'whenever'
 
 # Gems used only for assets and not required

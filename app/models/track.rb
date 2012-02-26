@@ -12,7 +12,7 @@ class Track < ActiveRecord::Base
 		begin
 			Net::SSH.start('std.jsvana.com', 'ruby', password: 'gem') do |ssh|
 				stdout = ""
-				ssh.exec!("./scan Music/Q*") do |channel, stream, data|
+				ssh.exec!("./scan Music/") do |channel, stream, data|
 					stdout << data if stream == :stdout
 				end
 
@@ -25,6 +25,7 @@ class Track < ActiveRecord::Base
 				Track.delete_all
 
 				data.each do |datum|
+					puts "[LOG] Attempting to add #{datum}..."
 					info = datum.split("\t")
 
 					filename = info[1]

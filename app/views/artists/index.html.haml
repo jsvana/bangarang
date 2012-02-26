@@ -1,8 +1,26 @@
 %h1 Artists
 
-- @artists.each do |artist|
-	%h2= artist.name
-	- artist.albums.each do |album|
-		%h4= album.name
-		- album.tracks.each do |track|
-			%p= "#{track.track_number}. #{track.title}"
+.accordion{id: "artists_accordion"}
+	- @artists.each do |artist|
+		.accordion-group
+			.accordion-heading
+				= link_to artist.name, "##{dom_id(artist)}", {class: "accordion-toggle", data: { toggle: "collapse", parent: "artists_accordion" } }
+			.accordion-body.collapse{id: "#{dom_id(artist)}"}
+				.accordion-inner
+					.accordion{id: "#{dom_id(artist)}_accordion"}
+						- artist.albums.each do |album|
+							.accordion-group
+								.accordion-heading
+									= link_to "#{album.name} by #{artist.name}", "##{dom_id(album)}", {class: "accordion-toggle", data: { toggle: "collapse", parent: "##{dom_id(artist)}_accordion" } }
+								.accordion-body.collapse{id: "#{dom_id(album)}"}
+									.accordion-inner
+										.container-fluid
+											.row-fluid
+												.span2
+													= link_to "#", class: 'thumbnail' do
+														= image_tag album.cover_url
+													%br
+													= link_to "Download", "/download", class: "btn"
+												.span8
+													- album.tracks.each_with_index do |track, index|
+														%p= "#{track.track_number}. #{track.title}"

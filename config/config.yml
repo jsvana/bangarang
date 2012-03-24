@@ -1,0 +1,17 @@
+development:
+  network_name: TechsMix Networks
+  ssh:
+    username: ruby
+    password: gem
+
+test:
+  network_name: TechsMix Networks
+  ssh:
+    username: ruby
+    password: gem
+
+production:
+  network_name: TechsMix Networks
+  ssh:
+    username: ruby
+    password: gem

@@ -1,17 +1,18 @@
-%h1 Log in
+.login
+	%h1 Log in
 
-- flash.each do |key, value|
-	.alert.alert-block.alert-error.fade.in
-		= link_to raw('&times;'), '#', class: 'close', "data-dismiss" => 'alert'
-		%h4.alert-heading Error logging in
-		%span= value
+	- flash.each do |key, value|
+		.alert.alert-block.alert-error.fade.in
+			= link_to raw('&times;'), '#', class: 'close', "data-dismiss" => 'alert'
+			%h4.alert-heading Error logging in
+			%span= value
 
-= form_tag sessions_path do
-	.field
-		= label_tag :username
-		= text_field_tag :username, params[:username]
-	.field
-		= label_tag :password
-		= password_field_tag :password
-	.actions
-		= submit_tag "Log in", class: 'btn'
+	= form_tag sessions_path do
+		.field
+			= label_tag :username
+			= text_field_tag :username, params[:username]
+		.field
+			= label_tag :password
+			= password_field_tag :password
+		.actions
+			= submit_tag "Log in", class: 'btn'

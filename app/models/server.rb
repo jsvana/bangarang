@@ -22,7 +22,7 @@ class Server < ActiveRecord::Base
 			server.status.ports = ports.join(',')
 
 			begin
-				Net::SSH.start(server.to_s, 'ruby', password: 'gem', timeout: 5) do |ssh|
+				Net::SSH.start(server.to_s, APP_CONFIG['ssh']['username'], password: APP_CONFIG['ssh']['password'], timeout: 5) do |ssh|
 					stdout = ""
 					ssh.exec!("uptime") do |channel, stream, data|
 						stdout << data if stream == :stdout

@@ -31,7 +31,7 @@
 						- if !movie.definition.nil? && movie.definition.length > 0
 							- movie.definition.split(",").each do |definition|
 								- data = definition.split(":")
-								= link_to data[0], "https://std.jsvana.com/hdmov/#{data[1]}", class: 'btn'
+								= link_to data[0], "#{APP_CONFIG['ssh']['ssl_movies']}#{data[1]}", class: 'btn'
 						- else
 							= link_to 'Standard', '/download', class: 'btn'
 

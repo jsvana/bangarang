@@ -10,9 +10,9 @@ class Track < ActiveRecord::Base
   	puts "[LOG] Updating music..."
 
 		begin
-			Net::SSH.start('std.jsvana.com', 'ruby', password: 'gem') do |ssh|
+			Net::SSH.start(APP_CONFIG['ssh']['hostname'], APP_CONFIG['ssh']['username'], password: APP_CONFIG['ssh']['password']) do |ssh|
 				stdout = ""
-				ssh.exec!("./scan Music/") do |channel, stream, data|
+				ssh.exec!("./scan #{APP_CONFIG['ssh']['music_dir']}") do |channel, stream, data|
 					stdout << data if stream == :stdout
 				end
 

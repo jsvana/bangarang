@@ -9,9 +9,9 @@ class Movie < ActiveRecord::Base
 		puts "[LOG] Updating movies..."
 
 		begin
-			Net::SSH.start('std.jsvana.com', 'ruby', password: 'gem') do |ssh|
+			Net::SSH.start(APP_CONFIG['ssh']['movie_hostname'], APP_CONFIG['ssh']['username'], password: APP_CONFIG['ssh']['password']) do |ssh|
 				stdout = ""
-				ssh.exec!("ls -R /media/bangarang/HD\\ Movies | grep -v '^\\/' | grep -v '^$' | grep -E '.mp4|.mkv|.avi'") do |channel, stream, data|
+				ssh.exec!("ls -R #{APP_CONFIG['ssh']['movie_dir']} | grep -v '^\\/' | grep -v '^$' | grep -E '.mp4|.mkv|.avi'") do |channel, stream, data|
 					stdout << data if stream == :stdout
 				end
 

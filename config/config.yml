@@ -1,17 +1,33 @@
 development:
   network_name: TechsMix Networks
+  title: This. Is. TechsMix.
   ssh:
+    movie_hostname: techsmix.net
+    movie_dir: Movies/
+    ssl_movies: https://techsmix.net/Movies/
+    music_hostname: techsmix.net
+    music_dir: Music/
     username: ruby
     password: gem
 
 test:
   network_name: TechsMix Networks
+  title: Welcome to TechsMix
   ssh:
+    movie_hostname: techsmix.net
+    movie_dir: Movies/
+    music_hostname: techsmix.net
+    music_dir: Music/
     username: ruby
     password: gem
 
 production:
   network_name: TechsMix Networks
+  title: 'You are on: TechsMix'
   ssh:
+    movie_hostname: techsmix.net
+    movie_dir: Movies/
+    music_hostname: techsmix.net
+    music_dir: Music/
     username: ruby
     password: gem

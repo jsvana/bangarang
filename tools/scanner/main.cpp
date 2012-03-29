@@ -1,6 +1,8 @@
 // Scanner
 // By Kaleb Elwert
 
+// NOTE: ID3v1 tags don't have an album artist field, simply because I can't access the frame list
+
 // C++ Standard Lib
 #include <iostream>
 #include <string>
@@ -60,9 +62,9 @@ int main(int argc, char *argv[]) {
 								track = old_tag->title();
 								trackartist = old_tag->artist();
 								album = old_tag->album();
-								if (old_tag->frameListMap().contains("TPE2")) {
+								/*if (old_tag->frameListMap().contains("TPE2")) {
 									albumartist = old_tag->frameListMap()["TPE2"].front()->toString();
-								}
+								}*/
 								tracknumber = old_tag->track();
 								year = old_tag->year();
 							}

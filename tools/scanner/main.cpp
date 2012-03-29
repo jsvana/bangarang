@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
 			current_dir = argv[i];
 			cerr << current_dir << endl;
 			for (filesystem::recursive_directory_iterator iter(current_dir), end; iter != end; ++iter) {
-				const string name = iter->path().filename();
+				const string name = iter->path().filename().native();
 				smatch what;
 				if (regex_match(name, what, pattern) && filesystem::is_regular_file(iter->path())) {
 					string ext = what[1];
@@ -45,7 +45,6 @@ int main(int argc, char *argv[]) {
 					if (ext == "mp3") {
 						MPEG::File file(iter->path().string().c_str());
 						ID3v2::Tag *tag = file.ID3v2Tag();
-						//ID3v1::Tag *tag = file.ID3v1Tag();
 						if (tag) {
 							track = tag->title();
 							trackartist = tag->artist();
@@ -55,6 +54,18 @@ int main(int argc, char *argv[]) {
 							}
 							tracknumber = tag->track();
 							year = tag->year();
+						} else {
+							ID3v1::Tag *old_tag = file.ID3v1Tag();
+							if (old_tag) {
+								track = old_tag->title();
+								trackartist = old_tag->artist();
+								album = old_tag->album();
+								if (old_tag->frameListMap().contains("TPE2")) {
+									albumartist = old_tag->frameListMap()["TPE2"].front()->toString();
+								}
+								tracknumber = old_tag->track();
+								year = old_tag->year();
+							}
 						}
 
 					} else if (ext == "m4a") {

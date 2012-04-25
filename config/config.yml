@@ -1,6 +1,6 @@
 development:
-  network_name: TechsMix Networks
-  title: This. Is. TechsMix.
+  network_name: Bangarang Networks
+  title: Bangarang!
   ssh:
     movie_hostname: techsmix.net
     movie_dir: Movies/
@@ -11,8 +11,8 @@ development:
     password: gem
 
 test:
-  network_name: TechsMix Networks
-  title: Welcome to TechsMix
+  network_name: Bangarang Networks
+  title: Bangarang!
   ssh:
     movie_hostname: techsmix.net
     movie_dir: Movies/
@@ -22,8 +22,8 @@ test:
     password: gem
 
 production:
-  network_name: TechsMix Networks
-  title: 'You are on: TechsMix'
+  network_name: Bangarang Networks
+  title: Bangarang!
   ssh:
     movie_hostname: techsmix.net
     movie_dir: Movies/

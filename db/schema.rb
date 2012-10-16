@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120214190201) do
+ActiveRecord::Schema.define(:version => 20120914202533) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(:version => 20120214190201) do
 
   create_table "artists", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "disks", :force => true do |t|
+    t.integer  "server_id"
+    t.string   "name"
+    t.string   "size"
+    t.string   "space_used"
+    t.string   "space_available"
+    t.integer  "percent_used"
+    t.string   "mount_point"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -52,6 +64,10 @@ ActiveRecord::Schema.define(:version => 20120214190201) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "nickname"
+    t.integer  "port"
+    t.string   "username"
+    t.string   "password"
+    t.boolean  "is_media",   :default => false
   end
 
   create_table "status_data", :force => true do |t|
@@ -62,6 +78,9 @@ ActiveRecord::Schema.define(:version => 20120214190201) do
     t.integer  "last_fifteen_load"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "total_memory"
+    t.integer  "free_memory"
+    t.integer  "used_memory"
   end
 
   create_table "statuses", :force => true do |t|
@@ -72,6 +91,9 @@ ActiveRecord::Schema.define(:version => 20120214190201) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "uptime"
+    t.string   "ip"
+    t.string   "ip6"
+    t.string   "mac_address"
   end
 
   create_table "tracks", :force => true do |t|

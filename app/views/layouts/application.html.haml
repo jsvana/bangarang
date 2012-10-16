@@ -3,7 +3,6 @@
 	%head
 		%title= content_for?(:title) ? yield(:title) : APP_CONFIG['title']
 		= stylesheet_link_tag "application"
-		= stylesheet_link_tag "bootstrap"
 		= javascript_include_tag "application"
 		= csrf_meta_tags
 	%body
@@ -33,7 +32,7 @@
 					%header#header
 						= link_to root_path, title: 'Home' do
 							= image_tag "logo.png", width: 700
-			
+
 			%hr
 
 			.row-fluid
@@ -47,7 +46,7 @@
 								%li= link_to 'Movies', movies_path
 								%li= link_to 'TV', '/tv'
 								%li= link_to 'Games', '/games'
-								%li= link_to 'Request', '/request'
+								%li= link_to 'Request', requests_path
 								- if current_user.admin
 									%li.nav-header ADMIN
 									%li= link_to 'Server Status', status_servers_path

@@ -16,26 +16,30 @@ class ServersController < ApplicationController
   # GET /servers/1.json
   def show
     @server = Server.find(params[:id])
-    minute_data = Array.new
-    five_data = Array.new
-    fifteen_data = Array.new
-    users_data = Array.new
-    
-    puts "[LOG] #{users_data}"
+    minute_data = []
+    five_data = []
+    fifteen_data = []
+    users_data = []
+    used_memory_data = []
+    free_memory_data = []
 
-    @server.status.status_data.each do |datum|
-      minute_data << datum.last_minute_load
-      five_data << datum.last_five_load
-      fifteen_data << datum.last_fifteen_load
-      users_data << datum.user_count
+    if @server.status
+      @server.status.status_data.each do |datum|
+        minute_data << datum.last_minute_load
+        five_data << datum.last_five_load
+        fifteen_data << datum.last_fifteen_load
+        users_data << datum.user_count
+        used_memory_data << datum.used_memory
+        free_memory_data << datum.free_memory
+      end
     end
-    
-    puts "[LOG] #{users_data}"
 
     @minute_load = minute_data.join(",")
     @five_load = five_data.join(",")
     @fifteen_load = fifteen_data.join(",")
     @users_load = users_data.join(",")
+    @used_memory_data = used_memory_data.map { |d| d.nil? ? 0 : d }.join(",")
+    @free_memory_data = free_memory_data.map { |d| d.nil? ? 0 : d }.join(",")
 
     respond_to do |format|
       format.html # show.html.erb
@@ -68,7 +72,7 @@ class ServersController < ApplicationController
     respond_to do |format|
       if @server.save
         Server.update_statuses
-        
+
         format.html { redirect_to servers_path, notice: 'Server was successfully created.' }
         format.json { render json: @server, status: :created, location: @server }
       else

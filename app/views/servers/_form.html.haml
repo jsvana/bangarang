@@ -17,7 +17,16 @@
     = f.label :domain
     = f.text_field :domain
   .field
-    = f.label :ip, 'IP Address'
-    = f.text_field :ip
+    = f.label :port
+    = f.text_field :port
+  .field
+    = f.label :username
+    = f.text_field :username
+  .field
+    = f.label :password
+    = f.password_field :password
+  .field
+    = f.label :is_media, 'Media Server'
+    = f.check_box :is_media
   .actions
-    = f.submit 'Update Server', class: 'btn-primary'
+    = f.submit 'Update Server', class: 'btn btn-primary'

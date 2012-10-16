@@ -3,6 +3,7 @@ Bangarang::Application.routes.draw do
 
   get 'login' => 'sessions#new', as: 'login'
   get 'logout' => 'sessions#destroy', as: 'logout'
+  get 'requests' => redirect('http://dante.dev'), as: 'requests'
 
   resources :file_managers
   resources :movies do

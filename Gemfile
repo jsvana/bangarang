@@ -11,6 +11,7 @@ gem 'sqlite3'
 gem 'haml-rails'
 
 gem 'ipaddress'
+gem 'fast-aes'
 gem 'net-ssh'
 gem 'imdb'
 

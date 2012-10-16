@@ -1,41 +1,48 @@
 User.delete_all
+Server.delete_all
+Status.delete_all
+Movie.delete_all
+Artist.delete_all
+Album.delete_all
+Track.delete_all
+
+# Users
 
 User.create(name: 'Jay Vana', username: 'jsvana', password: 'linked', password_confirmation: 'linked', email: 'asdf@asdf.com', admin: true, approved: true)
 User.create(name: 'Kaleb Elwert', username: 'kelwert', password: 'asdf', password_confirmation: 'asdf', email: 'asdf@asdf.com', approved: true)
 User.create(name: 'Josh Lewis', username: 'jdlewis', password: 'asdf', password_confirmation: 'asdf', email: 'asdf@asdf.com')
 User.create(name: 'Steve Jobs', username: 'stjobs', password: 'asdf', password_confirmation: 'asdf', email: 'asdf@asdf.com')
 
-Server.delete_all
+# Servers
 
-hyperion = Server.create(nickname: 'Firewall', hostname: 'hyperion', domain: 'jsvana.com', ip: '192.168.2.1/24')
-artemis = Server.create(hostname: 'artemis', domain: 'jsvana.com', ip: '192.168.2.2/24')
-apollo = Server.create(hostname: 'apollo', domain: 'jsvana.com', ip: '192.168.2.3/24')
+hyperion = Server.create(nickname: 'Firewall', hostname: 'hyperion',
+  domain: 'jsvana.com', ip: '192.168.2.1/24', port: 22)
+artemis = Server.create(hostname: 'artemis', domain: 'jsvana.com',
+  ip: '192.168.2.2/24', port: 22)
 
-Status.delete_all
+# Server Statuses
 
-hyperion.create_status(up: true, ports_open: 5, ports: '22,53,80,443,25565')
-artemis.create_status(up: false, ports_open: 1, ports: '22')
-apollo.create_status(up: true, ports_open: 3, ports: '22,80,9001')
+hyperion.create_status(up: false, ports_open: 0, ports: '')
+artemis.create_status(up: false, ports_open: 0, ports: '')
 
-Movie.delete_all
+# Movies
 
 Movie.create(imdb_id: 'tt0499549', title: 'Avatar', year: 2009, description: 'A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.', director: 'James Cameron', writer: 'James Cameron', runtime: 162, rating: '8.1', cover_url: 'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1._SY317_CR0,0,214,317_.jpg', definition: '720p,1080p', hd: true)
 Movie.create(imdb_id: 'tt0325980', title: 'Pirates of the Caribbean: The Curse of the Black Pearl', year: 2003, description: 'Blacksmith Will Turner teams up with eccentric pirate "Captain" Jack Sparrow to save his love, the governor\'s daughter, from Jack\'s former pirate allies, who are now undead.', director: 'Gore Verbinski', writer: 'Ted Elliot', runtime: 143, rating: '8.0', cover_url: 'http://ia.media-imdb.com/images/M/MV5BMjAyNDM4MTc2N15BMl5BanBnXkFtZTYwNDk0Mjc3._V1._SY317_CR0,0,214,317_.jpg', hd: false)
 
-Artist.delete_all
-#yelle = Artist.create(name: 'Yelle')
+# Artists
+
 coeur = Artist.create(name: 'Coeur de Pirate');
 various = Artist.create(name: 'Various Artists');
 big = Artist.create(name: 'BigGiantCircles')
 
-Album.delete_all
-#safari = Album.create(name: 'Safari Disco Club', artist_id: yelle.id, release_year: 2011);
-#pop = Album.create(name: 'Pop Up', artist_id: yelle.id, release_year: 2007);
+# Albums
+
 pirate = coeur.albums.create(name: 'Coeur de pirate', release_year: 2008, cover_url: 'http://ecx.images-amazon.com/images/I/61DvyGK1MVL._SS400_.jpg');
-#blonde = Album.create(name: 'Blonde', artist_id: coeur_id, release_year: 2011);
 imposter_nostalgia = various.albums.create(name: 'Imposter Nostalgia', release_year: 2011, cover_url: 'http://ecx.images-amazon.com/images/I/61Elyr3RLNL._SS500_.jpg')
 
-Track.delete_all
+# Tracks
+
 pirate.tracks.create(title: "Le long du large", track_number: 1, disk_number: 1)
 pirate.tracks.create(title: "Comme des enfants", track_number: 1, disk_number: 1)
 pirate.tracks.create(title: "Fondu au noir", track_number: 1, disk_number: 1)

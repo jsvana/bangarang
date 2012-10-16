@@ -6,7 +6,7 @@ class Movie < ActiveRecord::Base
 	self.per_page = 10
 
 	def self.update_movies
-		puts "[LOG] Updating movies..."
+		puts "[LOG] Updating movies from #{APP_CONFIG['ssh']['movie_hostname']}..."
 
 		begin
 			Net::SSH.start(APP_CONFIG['ssh']['movie_hostname'], APP_CONFIG['ssh']['username'], password: APP_CONFIG['ssh']['password']) do |ssh|

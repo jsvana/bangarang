@@ -13,4 +13,4 @@ Bangarang::Application.initialize!
 #	authentication: 'plain',
 #	enable_starttls_auto: false
 #}
-ActiveRecord::Base.pluralize_table_names = false
+#ActiveRecord::Base.pluralize_table_names = false

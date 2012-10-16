@@ -24,7 +24,6 @@ $ ->
 				text: 'Percent Load'
 			,
 			min: 0
-			max: 100
 		,
 		plotOptions:
 			area:
@@ -84,5 +83,41 @@ $ ->
 			{
 				name: 'Users'
 				data: window.App.Data.users_data
+			}
+		]
+
+	chart = new Highcharts.Chart
+		chart:
+			renderTo: 'memory-container'
+			type: 'area'
+		,
+		title:
+			text: 'Memory Usage'
+		,
+		xAxis:
+			title:
+				enabled: false
+		,
+		yAxis:
+			title:
+				text: 'Memory (MB)'
+		,
+		plotOptions:
+			area:
+				stacking: 'normal'
+				lineColor: '#666666'
+				lineWidth: 1
+				marker:
+					lineWidth: 1
+					lineColor: '#666666'
+		,
+		series: [
+			{
+				name: 'Free',
+				data: window.App.Data.free_memory_data
+			},
+			{
+				name: 'Used',
+				data: window.App.Data.used_memory_data
 			}
 		]

@@ -1,16 +1,18 @@
 development:
+  secret_key: "42#3b%c$dxyT,7a5=+5fUI3fa7352&^:"
   network_name: Bangarang Networks
   title: Bangarang!
   ssh:
-    movie_hostname: techsmix.net
-    movie_dir: Movies/
-    ssl_movies: https://techsmix.net/Movies/
-    music_hostname: techsmix.net
+    movie_hostname: std.jsvana.com
+    movie_dir: HD Movies/
+    ssl_movies: https://std.jsvana.com/HD Movies/
+    music_hostname: std.jsvana.com
     music_dir: Music/
     username: ruby
     password: gem
 
 test:
+  secret_key: "42#3b%c$dxyT,7a5=+5fUI3fa7352&^:"
   network_name: Bangarang Networks
   title: Bangarang!
   ssh:
@@ -22,6 +24,7 @@ test:
     password: gem
 
 production:
+  secret_key: "42#3b%c$dxyT,7a5=+5fUI3fa7352&^:"
   network_name: Bangarang Networks
   title: Bangarang!
   ssh:

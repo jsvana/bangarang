@@ -29,6 +29,7 @@
 					.span3
 						%h2 Download
 						- if !movie.definition.nil? && movie.definition.length > 0
+							%p= movie.definition
 							- movie.definition.split(",").each do |definition|
 								- data = definition.split(":")
 								= link_to data[0], "#{APP_CONFIG['ssh']['ssl_movies']}#{data[1]}", class: 'btn'

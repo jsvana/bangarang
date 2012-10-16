@@ -46,6 +46,7 @@ GEM
     erubis (2.7.0)
     execjs (1.2.13)
       multi_json (~> 1.0)
+    fast-aes (0.1.1)
     haml (3.1.4)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
@@ -131,6 +132,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   bootstrap-will_paginate
   coffee-rails (~> 3.1.1)
+  fast-aes
   haml-rails
   imdb
   ipaddress

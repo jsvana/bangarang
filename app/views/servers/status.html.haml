@@ -21,5 +21,8 @@
 							%span.gray= "(#{server})"
 						- else
 							= link_to "#{server}", server, class: 'big'
-					%td{class: "#{server.status.up ? "green" : "red"}"}= server.status.up ? "Up" : "Down"
+					- if server.status
+						%td{class: "#{server.status.up ? "green" : "red"}"}= server.status.up ? "Up" : "Down"
+					- else
+						%td{class: 'red'} Down
 	= link_to 'Force Update', forceupdate_servers_path, class: 'btn', id: 'status_forceupdate'
